@@ -15,7 +15,7 @@ export default {
     },
     methods: {
         getAutos(pageNumber){
-            axios.get(`${store.ApiUrl}api/Autos`, {
+            axios.get(`${store.ApiUrl}api/Autos/${this.$route.params.slug}`, {
                 params:{
                     page: pageNumber
                 }
