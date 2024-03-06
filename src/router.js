@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import AppAutos from './pages/AppAutos.vue'
+import AppAutos from './pages/AppAutos.vue';
+import BrandAutos from "./pages/BrandAutos.vue";
 // import AppNotFound from './pages/AppNotFound.vue'
 
 const router = createRouter({
@@ -11,6 +12,11 @@ const router = createRouter({
             name: 'autos',
             component: AppAutos
         },
+        {
+            path: '/autos/brand/:slug',
+            name: 'brand-autos'
+            component: BrandAutos
+        }
         // {
         //     path: '/:pathMatch(.*)*',
         //     name: 'not-found',
