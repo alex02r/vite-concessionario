@@ -21,7 +21,6 @@ export default {
 <!-- SEZIONE HTML -->
 <template lang="">
   <div class="col-12 col-md-4 mt-5">
-    <router-link :to="{ name: 'single-project', params: { slug: project.slug } }" class="link">
       <div class="card">
           <img :src="auto.img" alt="" class="card-img-top">
           <div class="card-body">
@@ -35,14 +34,11 @@ export default {
           <div class="card-body">
           </div>  
       </div>
-    </router-link>
  </div>
 </template>
 
 <!-- SEZIONE STYLE -->
 <style lang="scss" scoped>
-@use '../styles/partials/variables' as *;
-@use '../styles/generals.scss' as *;
 
 .link{
   text-decoration: none;
