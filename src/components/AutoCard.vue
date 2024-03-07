@@ -14,6 +14,19 @@ export default {
     }
   },
   methods: {
+    getPrice(auto){
+      let price = auto.price.slice(0, -1)
+      price = parseInt(price)
+      if (auto.optionals.length > 0) {
+        auto.optionals.forEach(element => {
+          let price_optional = element.price.slice(0, -1)
+          price_optional = parseInt(price_optional)
+          price += price_optional
+        });
+      }
+
+      return price
+    }
   },
 }
 </script>
@@ -25,7 +38,7 @@ export default {
           <img :src="auto.img" alt="" class="card-img-top">
           <div class="card-body">
               <h5 class="card-title text-capitalize">{{ auto.model }}</h5>
-              <p class="card-text"><strong>Prezzo:</strong> {{ auto.price }}</p>
+              <p class="card-text"><strong>Prezzo:</strong> {{ getPrice(auto) }}</p>
           </div>
             <ul class="list-group list-group-flush">
                   <li class="list-group-item"><strong>Anno:</strong> {{ auto.year }}</li>
