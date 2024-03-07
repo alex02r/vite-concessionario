@@ -63,9 +63,6 @@ export default {
 
 <!-- SEZIONE STYLE -->
 <style lang="scss" scoped>
-@use '../styles/partials/variables' as *;
-@use '../styles/generals.scss' as *;
-
 .pagination{
     margin: 20px 10px;
 }
