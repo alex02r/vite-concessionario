@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
+import Home from "./pages/Home.vue";
 import AppAutos from './pages/AppAutos.vue';
 import BrandAutos from "./pages/BrandAutos.vue";
 import AppNotFound from './pages/AppNotFound.vue';
@@ -7,6 +8,11 @@ import AppNotFound from './pages/AppNotFound.vue';
 const router = createRouter({
     history: createWebHistory(),
     routes: [
+        {
+            path: '/',
+            name: 'home',
+            component: Home
+        },
         {
             path: '/autos',
             name: 'autos',
