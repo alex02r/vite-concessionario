@@ -23,7 +23,7 @@ export default {
     },
     methods: {
         getAutos(page_number){
-            axios.get(`${this.store.baseUrl}/api/Autos`, {
+            axios.get(`${this.store.ApiUrl}api/autos`, {
                 params: {
                     page: page_number
                 }
