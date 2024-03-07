@@ -1,6 +1,6 @@
 <!-- SEZIONE JS SCRIPT -->
 <script>
-import Header from '../components/Header.vue';
+import Header from '../components/AppHeader.vue';
 
 export default {
     components: {
@@ -11,9 +11,7 @@ export default {
 
 <!-- SEZIONE HTML -->
 <template lang="">
-    <div>
         <Header/>
-    </div>
 
 
 </template>
