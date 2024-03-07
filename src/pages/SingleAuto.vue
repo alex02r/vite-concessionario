@@ -18,7 +18,7 @@ export default {
     },
     methods: {
         getAutoData(){
-            axios.get(`${this.store.baseUrl}/api/Autos/${this.$route.params.id}`).then((response) => {
+            axios.get(`${this.store.ApiUrl}/api/autos/${this.$route.params.id}`).then((response) => {
                 if(response.data.success){
                     this.auto = response.data.auto;
                     this.success = response.data.success;
