@@ -5,7 +5,6 @@ import { store } from '../store.js';
 import axios from 'axios';
 
 export default {
-    name:'AppBlog',
     components: {
         AutoCard
     },
@@ -14,8 +13,8 @@ export default {
         return {
             store,
             autos: [],
-            // currentautoPage: 1,
-            // lastautoPage: null,
+            currentautoPage: 1,
+            lastautoPage: null,
         }
     },
     created() {
@@ -28,9 +27,9 @@ export default {
                     page: page_number
                 }
             }).then((response) => {
-                this.autos = response.data.results;
-                // this.currentautoPage = response.data.results.current_page;
-                // this.lastautoPage = response.data.results.last_page;
+                this.autos = response.data.results.data;
+                this.currentautoPage = response.data.results.current_page;
+                this.lastautoPage = response.data.results.last_page;
             })
         },
     },
@@ -50,10 +49,10 @@ export default {
                 </div>
                 <div class="row"> 
                     <div class="col-12">
-                        <!-- <ul class="pagination d-flex justify-content-center">
-                            <li> <button :class="currentProjectPage == 1 ? 'disabled' : ''" class="btn btn-square btn-outline-success me-3 fw-bold" @click="getAutos(currentProjectPage - 1)">Precedente</button> </li>
-                            <li> <button :class="currentProjectPage == lastProjectPage ? 'disabled' : ''" class="btn btn-outline-success fw-bold" @click="getAutos(currentProjectPage + 1)">Successivo</button> </li>
-                        </ul> -->
+                        <ul class="pagination d-flex justify-content-center">
+                            <li> <button :class="currentautoPage == 1 ? 'disabled' : ''" class="btn btn-square btn-outline-success me-3 fw-bold" @click="getAutos(currentautoPage - 1)">Precedente</button> </li>
+                            <li> <button :class="currentautoPage == lastautoPage ? 'disabled' : ''" class="btn btn-outline-success fw-bold" @click="getAutos(currentautoPage + 1)">Successivo</button> </li>
+                        </ul>
                     </div>
                 </div>
             </div>
