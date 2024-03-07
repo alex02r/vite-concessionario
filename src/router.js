@@ -14,7 +14,7 @@ const router = createRouter({
         },
         {
             path: '/autos/brand/:slug',
-            name: 'brand-autos'
+            name: 'brand-autos',
             component: BrandAutos
         }
         // {
