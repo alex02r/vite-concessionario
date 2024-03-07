@@ -42,9 +42,18 @@ export default {
               <p class="card-text"><strong>Prezzo:</strong> {{ getPrice(auto) }}€</p>
           </div>
             <ul class="list-group list-group-flush">
-                  <li class="list-group-item"><strong>Anno:</strong> {{ auto.year }}</li>
-                  <li class="list-group-item"><strong>Carburante: </strong>{{ auto.fuel_type }}</li>
-              </ul>
+              <li class="list-group-item"><strong>Anno:</strong> {{ auto.year }}</li>
+              <li class="list-group-item"><strong>Carburante: </strong>{{ auto.fuel_type }}</li>
+              <li class="list-group-item">
+                <strong>Optional: </strong>
+                <ul class="list-unstyled d-flex gap-2" v-if="auto.optionals.length > 0">
+                  <li v-for="(optional, index) in auto.optionals" :key="index">
+                    {{optional.name}},
+                  </li>
+                </ul>
+                <span v-else>Nessun optional</span>
+              </li>
+            </ul>
           <div class="card-body">
           </div>  
       </div>

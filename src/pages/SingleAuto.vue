@@ -63,6 +63,15 @@ export default {
                             <li class="list-group-item"><strong>Carburante: </strong>{{ auto.fuel_type }}</li>
                             <li class="list-group-item"><strong>Cilindrata: </strong>{{ auto.displacement }}</li>
                             <li class="list-group-item"><strong>Cavalli: </strong>{{ auto.horsepower }}</li>
+                            <li class="list-group-item">
+                                <strong>Optional: </strong>
+                                <ul class="list-unstyled d-flex gap-2" v-if="auto.optionals.length > 0">
+                                  <li v-for="(optional, index) in auto.optionals" :key="index">
+                                    {{optional.name}},
+                                  </li>
+                                </ul>
+                                <span v-else>Nessun optional</span>
+                            </li>
                         </ul> 
                     </div>
                 </div>
