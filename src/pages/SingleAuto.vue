@@ -18,7 +18,7 @@ export default {
     },
     methods: {
         getAutoData(){
-            axios.get(`${this.store.ApiUrl}/api/autos/${this.$route.params.id}`).then((response) => {
+            axios.get(`${this.store.ApiUrl}api/autos/${this.$route.params.id}`).then((response) => {
                 if(response.data.success){
                     this.auto = response.data.auto;
                     this.success = response.data.success;
@@ -28,6 +28,19 @@ export default {
                 }
             });
         },
+        getPrice(auto){
+            let price = auto.price.slice(0, -1)
+            price = parseInt(price)
+            if (auto.optionals.length > 0) {
+                auto.optionals.forEach(element => {
+                let price_optional = element.price.slice(0, -1)
+                price_optional = parseInt(price_optional)
+                price += price_optional
+                });
+            }
+
+            return price
+        }
     },
 }
 </script>
@@ -45,7 +58,7 @@ export default {
                           <p class="card-text"><strong>Descrizione:</strong> {{ auto.description }}</p>
                       </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><strong>Prezzo: </strong>{{ auto.price }}</li>
+                            <li class="list-group-item"><strong>Prezzo: </strong>{{ getPrice(auto) }}€</li>
                             <li class="list-group-item"><strong>Anno:</strong> {{ auto.year }}</li>
                             <li class="list-group-item"><strong>Carburante: </strong>{{ auto.fuel_type }}</li>
                             <li class="list-group-item"><strong>Cilindrata: </strong>{{ auto.displacement }}</li>

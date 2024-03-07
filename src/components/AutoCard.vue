@@ -34,12 +34,12 @@ export default {
 <!-- SEZIONE HTML -->
 <template lang="">
   <div class="col-12 col-md-4 mt-5">
-    <router-link :to="{ name: 'single-auto', params: { slug: auto.id } }" class="link">
+    <router-link :to="{ name: 'single-auto', params: { id: auto.id } }" class="link">
       <div class="card">
           <img :src="auto.img" alt="" class="card-img-top">
           <div class="card-body">
               <h5 class="card-title text-capitalize">{{ auto.model }}</h5>
-              <p class="card-text"><strong>Prezzo:</strong> {{ getPrice(auto) }}</p>
+              <p class="card-text"><strong>Prezzo:</strong> {{ getPrice(auto) }}€</p>
           </div>
             <ul class="list-group list-group-flush">
                   <li class="list-group-item"><strong>Anno:</strong> {{ auto.year }}</li>
