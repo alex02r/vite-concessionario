@@ -1,8 +1,12 @@
 <!-- SEZIONE JS SCRIPT -->
 <script>
-
+import { store } from '../store';
 export default {
-  
+  data() {
+    return {
+      store
+    }
+  },
 }
 </script>
 
@@ -16,17 +20,11 @@ export default {
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
+      
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#auto">Auto</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#optionals">Optionals</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#brands">Brands</a>
+          <li class="nav-item" v-for="(item, index) in store.menuItems" :key="index">
+              <router-link :to="{ name: item.name }" class="nav-link">{{ item.label }}</router-link>
           </li>
         </ul>
       </div>
